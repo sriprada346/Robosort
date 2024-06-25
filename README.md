@@ -21,7 +21,7 @@ processes, paving the way for increased efficiency and streamlined operations.
 3. [Methodology](#methodology)
 4. [Installation](#installation)
 5. [Run My Robot](#run-my-robot)
-6. [Contact](#contact)
+6. [Feedback](#feedback)
 
 
 
