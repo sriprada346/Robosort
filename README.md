@@ -28,8 +28,8 @@ processes, paving the way for increased efficiency and streamlined operations.
 
 ## Features
 
-**Operational Modes**
-  - Manual,Semi,Auto modes
+
+- Manual,Semi,Auto modes
 - Controlled by Mobile Phone 
 - Object detection and Sorting 
 
