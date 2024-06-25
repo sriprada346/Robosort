@@ -97,7 +97,7 @@ Follow these steps to run your robot:
 3. **Access the Web Page**:
     On your mobile device, open a web browser and enter the IPv4 address of your Raspberry Pi followed by `:8001`. For example:
     ```
-    http://<Raspberry_Pi_IPv4_Address>:8001
+    <Raspberry_Pi_IPv4_Address>:8001
     ```
     Replace `<Raspberry_Pi_IPv4_Address>` with the actual IPv4 address of your Raspberry Pi.
 
