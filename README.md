@@ -33,10 +33,10 @@ processes, paving the way for increased efficiency and streamlined operations.
 -  Semi
 -  Auto modes
 
-###Simple User Interface
+### Simple User Interface
 - Controlled by Mobile Phone
 
- #####Used Machine Learning Technique
+ ##### Used Machine Learning Technique
 - Object detection and Sorting 
 
 
