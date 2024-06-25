@@ -30,8 +30,7 @@ processes, paving the way for increased efficiency and streamlined operations.
 
 **Operational Modes**
   - Manual,Semi,Auto modes
-**UI Controlers**
-  - Controlled by Mobile Phone 
+- Controlled by Mobile Phone 
 - Object detection and Sorting 
 
 
