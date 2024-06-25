@@ -50,6 +50,11 @@ processes, paving the way for increased efficiency and streamlined operations.
 - **Real VNC Viewer** - Development Environment of Raspberry on Personal Laptop or Computer  
 
 
+## Methodology
+
+https://github.com/sriprada346/Robosort/assets/56331169/51918aab-bf22-496d-96d2-2d9d13343da9
+
+
 
 
 ## Installation
