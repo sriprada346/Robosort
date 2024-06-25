@@ -44,6 +44,8 @@ processes, paving the way for increased efficiency and streamlined operations.
 
 ### Hardware Requirements
 - **Raspberry Pi 4 B**: A powerful and versatile single-board computer.
+  ![raspberry pi 4](https://github.com/sriprada346/Robosort/assets/56331169/99eed722-9028-4bfc-a0a5-268d0de63ac9)
+
 - **Adafruit 12bit 16 Channel**: PCB board with Driver for Handling Raspberry pi and Servo Motots
 - **Sensors**: Camera Module.
 - **Motors**: Servo Motors
@@ -77,6 +79,8 @@ Install Robosort Project
 ```
 Install **puTTy** for SSH Certificate Enabling
 
+**Single Arm Robot**: Set up single armed robot with 4 servo motors attached
+
 
 
 
@@ -84,7 +88,6 @@ Install **puTTy** for SSH Certificate Enabling
     
 ## Run My Robot
 Follow these steps to run your robot:
-
 1. **Connect to the Same Network**:
     Ensure that both your Raspberry Pi and your mobile device are connected to the same local network.
 
