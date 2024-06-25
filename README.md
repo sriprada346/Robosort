@@ -44,12 +44,15 @@ processes, paving the way for increased efficiency and streamlined operations.
 
 ### Hardware Requirements
 - **Raspberry Pi 4 B**: A powerful and versatile single-board computer.
-  ![raspberry pi 4](https://github.com/sriprada346/Robosort/assets/56331169/99eed722-9028-4bfc-a0a5-268d0de63ac9)
+![raspberry pi 4](https://github.com/sriprada346/Robosort/assets/56331169/57576ecc-c524-4666-b386-8fe34e4ff730)
 
 - **Adafruit 12bit 16 Channel**: PCB board with Driver for Handling Raspberry pi and Servo Motots
+  ![Adafruit channel](https://github.com/sriprada346/Robosort/assets/56331169/ee7a3b4e-d2f6-4417-a73d-7695ca843fe9)
 - **Sensors**: Camera Module.
 - **Motors**: Servo Motors
-- **Robotic Arm**: Full fledged Single Robotic Arm 
+  ![servo_motors](https://github.com/sriprada346/Robosort/assets/56331169/18ed47e0-4fc0-42f7-a5fa-77e8e16209cc)
+- **Robotic Arm**: Full fledged Single Robotic Arm
+  
 
 ### Software Requirements
 - **Python 3.8+**: The programming language used for the project.
