@@ -16,9 +16,9 @@ processes, paving the way for increased efficiency and streamlined operations.
 
 
 ## Table of Contents
-1. [Overview](#overview)
-2. [Features](#features)
-3. [Prerequisites](#prerequisites)
+1. [Features](#features)
+2. [Prerequisites](#prerequisites)
+3. [Methodology](#methodology)
 4. [Installation](#installation)
 5. [Run My Robot](#run-my-robot)
 6. [Contact](#contact)
