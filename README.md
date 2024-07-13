@@ -47,7 +47,7 @@ processes, paving the way for increased efficiency and streamlined operations.
 ![raspberry pi 4](https://github.com/sriprada346/Robosort/assets/56331169/57576ecc-c524-4666-b386-8fe34e4ff730)
 
 - **Adafruit 12bit 16 Channel**: PCB board with Driver for Handling Raspberry pi and Servo Motots
-- ![71q0vrsqlkl-sl1500](https://github.com/user-attachments/assets/7bcbeded-2eaa-4388-8df2-a2b3fd909257)
+![71q0vrsqlkl-sl1500](https://github.com/user-attachments/assets/2f087797-6c01-4c2b-b3b6-38ca8e19e9c9)
 
 - **Sensors**: Camera Module.
 - **Motors**: Servo Motors
