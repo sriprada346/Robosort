@@ -85,10 +85,8 @@ Install **puTTy** for SSH Certificate Enabling
 
 **Single Arm Robot**: Set up single armed robot with 4 servo motors attached
 
-
-
-
-
+## Training Data Sets
+Use 'Makesense.ai' for training custom Model
     
 ## Run My Robot
 Follow these steps to run your robot:
