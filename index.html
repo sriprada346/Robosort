@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raspberry Pi Servo Control</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            margin: 0;
+            box-sizing: border-box;
+            text-align: center;
+            background: linear-gradient(45deg, #b3149d, #172fbb, #1cac9d, #172fbb, #b3149d);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .slider {
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .button-container button {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 10px auto;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 10px;
+        }
+
+        .button-container button.active {
+            background-color: yellow;
+        }
+
+        .slider-container {
+            text-align: center;
+        }
+
+        .slider-container div {
+            margin: 20px 0;
+        }
+
+        @media (min-width: 768px) {
+            .button-container button {
+                display: inline-block;
+                width: auto;
+                margin: 10px 10px;
+            }
+
+            .slider-container {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+
+            .slider-container div {
+                flex: 1;
+                margin: 10px;
+                max-width: 300px;
+            }
+        }
+        
+        .slider:hover {
+            opacity: 1;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mode Control</h1>
+    <div class="button-container">
+        <button onclick="setMode('manual')">Manual Mode</button>
+        <button onclick="setMode('semi')">Semi-Auto Mode</button>
+        <button onclick="setMode('auto')">Auto Mode</button>
+        <div>
+            <button onclick="setMode('stop')">Stop Mode</button>
+        </div>
+    </div>
+
+    <h2>Manual Servo Control</h2>
+    <div class="slider-container">
+        <div>
+            <label for="servo1">Servo 1:</label>
+            <input type="range" min="-90" max="90" value="0" step="1" class="slider" id="servo1" oninput="updateValue('servo1', this.value)">
+            <span id="servo1Value">0</span>
+        </div>
+        <div>
+            <label for="servo2">Servo 2:</label>
+            <input type="range" min="0" max="90" value="0" step="1" class="slider" id="servo2" oninput="updateValue('servo2', this.value)">
+            <span id="servo2Value">0</span>
+        </div>
+        <div>
+            <label for="servo3">Servo 3:</label>
+            <input type="range" min="0" max="90" value="0" step="1" class="slider" id="servo3" oninput="updateValue('servo3', this.value)">
+            <span id="servo3Value">0</span>
+        </div>
+        <div>
+            <label for="servo4">Claw</label>
+            <input type="range" min="0" max="50" value="0" step="50" class="slider" id="servo4" oninput="updateValue('servo4', this.value)">
+            <span id="servo4Value">0</span>
+        </div>
+    </div>
+    <div class="button-container">
+        <button onclick="resetSliders()">Reset Sliders</button>
+    </div>
+
+    <script>
+        let currentMode = '';
+
+        function updateValue(servo, value) {
+            document.getElementById(servo + 'Value').innerText = value;
+
+            if (currentMode === 'manual') {
+                controlServo();
+            }
+        }
+        
+        function setMode(mode) {
+            currentMode = mode;
+            console.log("Mode set to: " + mode);
+
+            let buttons = document.querySelectorAll('.button-container button');
+            buttons.forEach(button => button.classList.remove('active'));
+            document.querySelector(`button[onclick="setMode('${mode}')"]`).classList.add('active');
+
+            // Enable or disable sliders based on mode
+            let sliders = document.querySelectorAll('.slider');
+            if (mode === 'manual') {
+                sliders.forEach(slider => slider.disabled = false);
+            } else {
+                sliders.forEach(slider => slider.disabled = true);
+            }
+
+            // Add your mode handling logic here
+            fetch(`http://127.0.0.1:8000/control?mode=${mode}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .catch(error => {
+                    console.error('There was a problem with your fetch operation:', error);
+                });
+        }
+
+        function controlServo() {
+            var servo1Value = document.getElementById("servo1").value;
+            var servo2Value = document.getElementById("servo2").value;
+            var servo3Value = document.getElementById("servo3").value;
+            var servo4Value = document.getElementById("servo4").value;
+
+            fetch(`http://127.0.0.1:8000/slider?servo1=${servo1Value}&servo2=${servo2Value}&servo3=${servo3Value}&servo4=${servo4Value}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .catch(error => {
+                    console.error('There was a problem with your fetch operation:', error);
+                });
+        }
+
+        function resetSliders() {
+            document.getElementById("servo1").value = 0;
+            document.getElementById("servo2").value = 0;
+            document.getElementById("servo3").value = 0;
+            document.getElementById("servo4").value = 0;
+            updateValue('servo1', 0);
+            updateValue('servo2', 0);
+            updateValue('servo3', 0);
+            updateValue('servo4', 0);
+        }
+
+        // Initially disable sliders
+        document.addEventListener("DOMContentLoaded", function() {
+            let sliders = document.querySelectorAll('.slider');
+            sliders.forEach(slider => slider.disabled = true);
+        });
+    </script>
+</body>
+</html>
